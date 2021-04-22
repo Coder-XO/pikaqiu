@@ -194,24 +194,33 @@ const string = `
     background: #ff0000;
     border-radius: 50%;
 }
+#help {
+    position: absolute;
+    transform: rotate(-20deg);
+    background:  #ffe600;
+    width: 100px;
+    height: 20px;
+    z-index: 20;
+
+}
 `
 let n = 1
 let time = 30
 let displayCSS = () => {
     n++
-    if(n > string.length){
+    if (n > string.length) {
         window.clearInterval(timer)
         return
     }
-    demo.innerText = string.substr(0,n)
-    demo2.innerHTML = string.substr(0,n)
+    demo.innerText = string.substr(0, n)
+    demo2.innerHTML = string.substr(0, n)
     demo.scrollTop = demo.scrollHeight
 }
 let timer  //  定时器
 const play = (speed) => {
     timer = setInterval(() => {
         displayCSS()
-    },time)
+    }, time)
 }
 play(time)
 btnPause.onclick = () => {
@@ -220,7 +229,7 @@ btnPause.onclick = () => {
 btnPlay.onclick = () => {
     timer = setInterval(() => {
         displayCSS()
-    },time)
+    }, time)
 }
 btnSlow.onclick = () => {    // 不同速度
     runCSS(50)
